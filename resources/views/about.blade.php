@@ -1,7 +1,8 @@
 <x-layout>
-    <x-slot name="page_heading">
-        About Us
+    <x-slot:header>
+        About us
     </x-slot>
-
-    <p>This is the about page of our Laravel 8 application</p>
+    <p>
+        This is the about page. There's not much to say about it, really.
+    </p>
 </x-layout>

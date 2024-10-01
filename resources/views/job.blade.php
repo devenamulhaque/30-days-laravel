@@ -1,13 +1,12 @@
 <x-layout>
-    <x-slot name="page_heading">
-        Job Details
+    <x-slot name="header">
+        {{ $job['title'] }}
     </x-slot>
-
-    <h1 class="text-3xl">{{$job['name']}}</h1>
-    <ul>
-        <li>Salary: {{$job['salary']}}</li>
-        <li>Location: {{$job['location']}}</li>
+    <ul class="pl-7 mb-4 list-disc flex gap-10">
+        <li>{{$job['salary']}}</li>
+        <li>{{$job['status']}}</li>
+        <li>{{$job['location']}}</li>
     </ul>
-
-    <p>{{$job['description']}}</p>
+    <p class="mb-8">{{$job['description']}}</p>
+    <a class="underline" href="/jobs">Back to jobs listing</a>
 </x-layout>

@@ -1,7 +1,10 @@
 <x-layout>
-    <x-slot name="page_heading">
-        Welcome to Laravel
+    <x-slot name="header">
+        Home
     </x-slot>
-
-    <p>This is the home page of our Laravel 8 application</p>
+    <h2 class="text-2xl font-bold mb-4">
+        Welcome to {{$name}}!
+    </h2>
+    <p class="mb-2">Email: {{ $email }}</p>
+    <p>{{ $bio }}</p>
 </x-layout>

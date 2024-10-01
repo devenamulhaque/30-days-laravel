@@ -4,20 +4,27 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 
+
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        'name' => 'John Doe',
+        'bio' => 'I am a web developer. I love to work with PHP, Laravel, and JavaScript.',
+        'email' => 'enamul.iu91@gmail.com'
+    ]);
 });
 
-Route::get('/jobs', function() {
+Route::get('/jobs', function(){
     return view('jobs', [
-        'jobs' => Job::all()
+        'jobs' => Job::all()                 
     ]);
 });
 
-Route::get('/jobs/{id}', function($id) {
-    return view('job', [
-        'job' => Job::find($id)
-    ]);
+Route::get('/jobs/{id}', function($id){
+
+    $job = Job::find($id);
+
+    return view('job', ['job' => $job]);
+    
 });
 
 Route::get('/about', function(){
@@ -27,3 +34,4 @@ Route::get('/about', function(){
 Route::get('/contact', function(){
     return view('contact');
 });
+

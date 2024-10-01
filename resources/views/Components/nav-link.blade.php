@@ -1,3 +1,7 @@
-@props(['active' => false])
+@props(['active' => false, 'type' => 'link'])
 
-<a class="{{$active ? 'bg-purple-500 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} rounded-md px-3 py-2 text-sm font-medium" {{$attributes}}>{{$slot}}</a>
+@if ($type === 'link')
+<a class="{{$active ? 'bg-gray-100 text-gray-900': 'text-gray-500'}} text-sm font-semibold leading-6 px-3 py-1 rounded-sm hover:text-gray-900" {{ $attributes }}>{{ $slot }}</a>
+@else
+<button class="{{$active ? 'bg-gray-100 text-gray-900': 'text-gray-500'}} text-sm font-semibold leading-6 px-3 py-1 rounded-sm hover:text-gray-900" {{ $attributes }}>{{ $slot }}</button>
+@endif
