@@ -28,6 +28,7 @@
         <div class="hidden lg:flex lg:gap-x-8">
                 <x-nav-link type="link" href="/" :active="request()->is('/')" id="home-link">Home</x-nav-link>
                 <x-nav-link href="/jobs" id="about-link" :active="request()->is('jobs')">Jobs</x-nav-link>
+                <x-nav-link href="/employers" id="about-link" :active="request()->is('employers')">Companies</x-nav-link>
                 <x-nav-link href="/about" id="about-link" :active="request()->is('about')">About</x-nav-link>
                 <x-nav-link type="link" href="contact" id="about-link" :active="request()->is('contact')">Contact</x-nav-link>
             </div>

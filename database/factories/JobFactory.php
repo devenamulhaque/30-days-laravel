@@ -19,7 +19,7 @@ class JobFactory extends Factory
     {
         return [
             "title" => $this->faker->jobTitle(),
-            "employer_id" => Employer::factory(),
+            "employer_id" => Employer::inRandomOrder()->first()->id,
             "description" => $this->faker->text(),
             "salary" => '$'.number_format($this->faker->numberBetween(30000, 100000)).'/year',
             "status" => $this->faker->randomElement(["Full-time", "Part-time", "Remote", "Contractual"]),
