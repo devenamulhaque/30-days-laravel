@@ -3,7 +3,7 @@
         Jobs
     </x-slot>
     <p class="mb-8">We're hiring! Check out our job listings below:</p>
-    <table class="w-full">
+    <table class="w-full mb-8">
         <thead>
             <tr>
                 <th class="text-left border px-4 py-2">SL</th>
@@ -27,5 +27,9 @@
             @endforeach
         </tbody>
     </table>
+
+    <div class="mt-4>
+        {{ $jobs->links() }}
+    </div>
 
 </x-layout>
