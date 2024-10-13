@@ -2,6 +2,11 @@
     <x-slot name="header">
         Jobs
     </x-slot>
+    <x-slot name="header_buttons">
+        <div>
+            <a href="/jobs/create" class="text-sm font-semibold leading-6 bg-black text-white px-5 py-3 rounded-md">Create a new job <span aria-hidden="true">&rarr;</span></a>
+        </div>
+    </x-slot>
     <p class="mb-8">We're hiring! Check out our job listings below:</p>
     <table class="w-full mb-8">
         <thead>
