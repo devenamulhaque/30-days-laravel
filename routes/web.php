@@ -32,14 +32,24 @@ Route::get('/jobs/{id}', function($id){
 });
 
 Route::post('/jobs', function(){
-    Job::create([
-        'title' => request('title'),
-        'description' => request('description'),
-        'salary' => request('salary'),
-        'status' => request('status'),
-        'location' => request('location'),
-        'employer_id' => 6
+    // validate the form
+    request()->validate([
+        'title' => 'required',
+        'description' => 'required',
+        'salary' => 'required',
+        'type' => 'required',
+        'location' => 'required'
     ]);
+
+    // create the job
+    $job = new Job();
+    $job->title = request('title');
+    $job->description = request('description');
+    $job->salary = request('salary');
+    $job->status = request('type');
+    $job->location = request('location');
+    $job->employer_id = 1;
+    $job->save();
 
     return redirect('/jobs');
 });

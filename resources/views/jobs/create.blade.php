@@ -12,8 +12,11 @@
                     <div class="sm:col-span-4">
                         <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Job Title</label>
                         <div class="mt-2">
-                            <input id="title" name="title" type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3" placeholder="Software Engineer">
+                            <input id="title" name="title" type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3 @error('title') ring-2 ring-red-500 @else ring-1 ring-gray-300 @enderror" placeholder="Software Engineer">
                         </div>
+                        @error('title')
+                        <p class="text-red-500 mt-1 italic">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="sm:col-span-4">
@@ -55,6 +58,14 @@
                         </div>
                     </div>
                 </div>
+
+                @if ($errors->any())
+                <ul class="mt-8">
+                    @foreach ($errors->all() as $error)
+                    <li class="text-red-500">{{ $error }}</li>
+                    @endforeach
+                </ul>
+                @endif
             </div>
         </div>
 
