@@ -54,6 +54,35 @@ Route::post('/jobs', function(){
     return redirect('/jobs');
 });
 
+Route::get('/jobs/{id}/edit', function($id){
+    $job = Job::find($id);
+    return view('jobs.edit', ['job' => $job]);
+});
+
+Route::patch('/jobs/{id}/', function($id){
+    // validate the job
+    request()->validate([
+        'title' => 'required',
+        'description' => 'required',
+        'salary' => 'required',
+        'type' => 'required',
+        'location' => 'required'
+    ]);
+
+    // update the job
+    $job = Job::findOrFail($id);
+
+    $job->update([
+        'title' => request('title'),
+        'description' => request('description'),
+        'salary' => request('salary'),
+        'status' => request('type'),
+        'location' => request('location')
+    ]);
+
+    return redirect("/jobs/{$job->id}");
+});
+
 Route::get('/employers', function(){
     return view('employers', [
         'employers' => Employer::all()
