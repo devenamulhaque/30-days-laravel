@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Employer;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\EmployerController;
 
