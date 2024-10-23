@@ -38,9 +38,9 @@
                         <label for="type" class="block text-sm font-medium leading-6 text-gray-900">Type</label>
                         <div class="mt-2">
                             <select id="type" name="type" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                                <option value="contractual" {{ $job->type == 'contractual' ? 'selected' : '' }}>Contractual</option>
-                                <option value="remote" {{ $job->type == 'remote' ? 'selected' : '' }}>Remote</option>
-                                <option value="part-time" {{ $job->type == 'part-time' ? 'selected' : '' }}>Part-time</option>
+                                <option value="Contractual" {{ $job->status === 'Contractual' ? 'selected' : '' }}>Contractual</option>
+                                <option value="remote" {{ $job->status === 'Remote' ? 'selected' : '' }}>Remote</option>
+                                <option value="Part-time" {{ $job->status ==='Part-time' ? 'selected' : '' }}>Part-time</option>
                             </select>
                         </div>
                     </div>
@@ -70,10 +70,20 @@
             </div>
         </div>
 
-        <div class="mt-6 flex items-center justify-end gap-x-6">
-            <a href="/jobs/{{$job->id}}" class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
-            <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update</button>
+        <div class="mt-6 flex items-center justify-between gap-x-6">
+            <div>
+                <button id="delete-form" type="submit" class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Delete</button>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="/jobs/{{$job->id}}" class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
+                <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update</button>
+            </div>
         </div>
+    </form>
+
+    <form method="POST" action="/jobs/{{ $job->id }}" id="delete-form" class="hidden">
+        @csrf
+        @method('DELETE')
     </form>
 
 </x-layout>
