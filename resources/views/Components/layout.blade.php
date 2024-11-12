@@ -13,8 +13,7 @@
         <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
                 <a href="/" class="-m-1.5 p-1.5">
-                    <span class="sr-only">Your Company</span>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg" alt="">
+                    <span>Your Company</span>
                 </a>
             </div>
             <div class="flex lg:hidden">
@@ -25,16 +24,7 @@
                     </svg>
                 </button>
             </div>
-        <div class="hidden lg:flex lg:gap-x-8">
-                <x-nav-link type="link" href="/" :active="request()->is('/')" id="home-link">Home</x-nav-link>
-                <x-nav-link href="/jobs" id="about-link" :active="request()->is('jobs')">Jobs</x-nav-link>
-                <x-nav-link href="/employers" id="about-link" :active="request()->is('employers')">Companies</x-nav-link>
-                <x-nav-link href="/about" id="about-link" :active="request()->is('about')">About</x-nav-link>
-                <x-nav-link type="link" href="contact" id="about-link" :active="request()->is('contact')">Contact</x-nav-link>
-            </div>
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
-            </div>
+            <x-navbar />
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
         <div class="lg:hidden" role="dialog" aria-modal="true">

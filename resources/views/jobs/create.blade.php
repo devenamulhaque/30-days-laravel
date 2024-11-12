@@ -10,9 +10,9 @@
             <div class="border-b border-gray-900/10 pb-12">
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Job Title</label>
+                        <x-form.label for="title">Job Title</x-form.label>
                         <div class="mt-2">
-                            <input id="title" name="title" type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3 @error('title') ring-2 ring-red-500 @else ring-1 ring-gray-300 @enderror" placeholder="Software Engineer">
+                            <x-form.input field="title" id="title" name="title" type="text" placeholder="Software Engineer" />
                         </div>
                         @error('title')
                         <p class="text-red-500 mt-1 italic">{{ $message }}</p>
